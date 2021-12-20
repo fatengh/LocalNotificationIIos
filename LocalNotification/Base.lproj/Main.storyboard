@@ -1,24 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LocalNotification" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="zvf-fD-zAj">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8Sa-Qn-0t3"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" id="wXV-y9-oUJ">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="SwI-cw-Fpv">
+                                            <rect key="frame" x="20" y="4.5" width="50.5" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="repeat" catalog="system" title=""/>
+                                            <connections>
+                                                <action selector="restartTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qoL-RM-rDh"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="E6z-jB-UGH">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Cjw-cF-GTn">
+                                            <rect key="frame" x="70.5" y="4.5" width="274" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system" title=""/>
+                                            <connections>
+                                                <action selector="showList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FKN-Ud-GGN"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="eJn-zr-IL0">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jzm-uV-Oxw">
+                                            <rect key="frame" x="344.5" y="5" width="49.5" height="34.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title=""/>
+                                        </button>
+                                        <connections>
+                                            <action selector="addNewTimer:" destination="BYZ-38-t0r" id="Ryn-GI-cCr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 hours , 0 minuts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpW-UD-PXl">
+                                <rect key="frame" x="80" y="137" width="255" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5 min timer is set " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pi-TE-GE8">
+                                <rect key="frame" x="80" y="198" width="255" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" semanticContentAttribute="playback" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E5S-8B-tI1">
+                                <rect key="frame" x="0.0" y="249" width="414" height="162"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="work untile 00:00 Am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqv-En-9Ex">
+                                <rect key="frame" x="119" y="430" width="177" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqW-Iu-as0">
+                                <rect key="frame" x="151.5" y="493" width="111" height="44"/>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="6tJ-7G-wla"/>
+                                    <constraint firstAttribute="height" constant="44" id="fFA-NS-5JR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start Timer "/>
+                                <connections>
+                                    <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="37z-5r-cs2"/>
+                                </connections>
+                            </button>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="obT-Na-CYf">
+                                <rect key="frame" x="20" y="484" width="112" height="347"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="620" id="AY7-z8-Vfh"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" id="hQn-Xu-dhb">
+                                        <rect key="frame" x="0.0" y="44.5" width="112" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hQn-Xu-dhb" id="ATn-uH-DhD">
+                                            <rect key="frame" x="0.0" y="0.0" width="112" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="6KT-7F-hzb"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="total Time :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcW-iN-cva">
+                                <rect key="frame" x="80" y="76" width="255" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Pi-TE-GE8" firstAttribute="top" secondItem="FpW-UD-PXl" secondAttribute="bottom" constant="18" id="4jt-MJ-DI2"/>
+                            <constraint firstItem="zvf-fD-zAj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="85w-nr-8Hb"/>
+                            <constraint firstItem="SqW-Iu-as0" firstAttribute="centerX" secondItem="Tqv-En-9Ex" secondAttribute="centerX" id="AYU-yD-4tm"/>
+                            <constraint firstItem="zvf-fD-zAj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="D0s-ef-0u0"/>
+                            <constraint firstItem="Tqv-En-9Ex" firstAttribute="centerX" secondItem="E5S-8B-tI1" secondAttribute="centerX" id="Gcl-hS-88I"/>
+                            <constraint firstItem="E5S-8B-tI1" firstAttribute="centerX" secondItem="4Pi-TE-GE8" secondAttribute="centerX" id="K1y-br-15a"/>
+                            <constraint firstItem="4Pi-TE-GE8" firstAttribute="centerX" secondItem="FpW-UD-PXl" secondAttribute="centerX" id="Sf6-71-AvK"/>
+                            <constraint firstItem="E5S-8B-tI1" firstAttribute="top" secondItem="4Pi-TE-GE8" secondAttribute="bottom" constant="8" symbolic="YES" id="XLX-yv-yJg"/>
+                            <constraint firstItem="zvf-fD-zAj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bVP-Eg-rbi"/>
+                            <constraint firstItem="WcW-iN-cva" firstAttribute="centerX" secondItem="zvf-fD-zAj" secondAttribute="centerX" id="eug-sw-YYe"/>
+                            <constraint firstItem="WcW-iN-cva" firstAttribute="top" secondItem="zvf-fD-zAj" secondAttribute="bottom" constant="12" id="f6p-gK-qiq"/>
+                            <constraint firstItem="Tqv-En-9Ex" firstAttribute="top" secondItem="E5S-8B-tI1" secondAttribute="bottom" constant="19" id="fBs-o5-wyf"/>
+                            <constraint firstItem="FpW-UD-PXl" firstAttribute="centerX" secondItem="WcW-iN-cva" secondAttribute="centerX" id="iJQ-wo-acO"/>
+                            <constraint firstItem="obT-Na-CYf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kHl-ij-DaG"/>
+                            <constraint firstItem="FpW-UD-PXl" firstAttribute="top" secondItem="WcW-iN-cva" secondAttribute="bottom" constant="18" id="p4G-UX-PQm"/>
+                            <constraint firstItem="obT-Na-CYf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wEH-gH-TX4"/>
+                            <constraint firstItem="SqW-Iu-as0" firstAttribute="top" secondItem="Tqv-En-9Ex" secondAttribute="bottom" constant="38" id="ysS-9Z-X2R"/>
+                            <constraint firstItem="obT-Na-CYf" firstAttribute="top" secondItem="zvf-fD-zAj" secondAttribute="bottom" id="zeQ-Rf-iRO"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="minPicker" destination="E5S-8B-tI1" id="k71-of-aMO"/>
+                        <outlet property="minTimer" destination="4Pi-TE-GE8" id="jF2-07-mKe"/>
+                        <outlet property="starterButton" destination="SqW-Iu-as0" id="b5M-Oj-FZJ"/>
+                        <outlet property="time" destination="FpW-UD-PXl" id="70G-C8-9m6"/>
+                        <outlet property="timerTble" destination="obT-Na-CYf" id="SQQ-Bl-Q6X"/>
+                        <outlet property="totalTime" destination="WcW-iN-cva" id="s5g-Dp-OX4"/>
+                        <outlet property="workunt" destination="Tqv-En-9Ex" id="JDF-4Y-pq9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="repeat" catalog="system" width="128" height="98"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
